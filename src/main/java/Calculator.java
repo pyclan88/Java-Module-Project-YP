@@ -1,13 +1,16 @@
 public class Calculator {
     String allItems = "Добавленные товары:\n";
+    StringBuilder allAddedItems = new StringBuilder(allItems);
     double total;
-    public void sumItem(String name) {
-        allItems = allItems.concat(name);
+
+    public void addItem(String name) {
+        allAddedItems.append(name);
     }
+
     public void sumPrice(double price) {
-                total += price;
+        total += price;
         Formatter formatter = new Formatter();
-        allItems = allItems.concat(" / стоимость: " + formatter.getCurrencyCorrectly(price) + "\n");
+        allAddedItems.append(" / стоимость: " + formatter.getCurrencyCorrectly(price) + "\n");
     }
 
     public double getPaymentOfEachOne(double total, int persons) {
